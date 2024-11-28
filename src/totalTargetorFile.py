@@ -1,3 +1,4 @@
+# 多个文件爱你内容合并成为一个文件
 input_files=['target.txt','target2.txt','target3.txt']
 output_file='totalTarget.txt'
 
