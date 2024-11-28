@@ -7,7 +7,7 @@ def extract_number(text):
     # 使用正则表达式查找数字
     match = re.search(r'\d+', text)
     if match:
-        return match.group()  # 返回第一个匹配的数字
+        return match.group()  # 返回第一个匹配的数字，r表示该字符串是原始字符串，不会进行转义
     return ''
 
 # 读取文件并保存数据到txt文件
@@ -40,9 +40,6 @@ def read_and_save_to_txt(file_path, columns, output_txt_file):
             line = ','.join(extracted_values) + '\n'
             f.write(line)
 
-    print(f"数据已经保存到 {output_txt_file}")
+    print(f"数据已经保存到 {output_txt_file}") #f表示格式化字符串
 
-# 示例：读取'example.xlsx'或'example.csv'文件的'C'和'D'列，并保存到'target.txt'
-read_and_save_to_txt('/Users/xjk/Desktop/back-code-project/python-tool/store/red.xlsx', ['订单号', '包裹备注信息'], 'target2.txt')
-# 或者
-# read_and_save_to_txt('example.csv', ['C', 'D'], 'target.txt')
+read_and_save_to_txt('/Users/xjk/Desktop/back-code-project/python-tool/src/store/youzang.csv', ['订单号', '商家订单备注'], 'src/store/out/target2.txt')
