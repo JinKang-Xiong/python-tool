@@ -15,9 +15,14 @@ def read_xlsx(file_path):
     print(str)
 
 
-# read_xlsx('/Users/xjk/Desktop/back-code-project/python-tool/src/store/12-2.xlsx')
 
 def read_xlsx_wirte(file_path,origin_txt):
+    """_summary_
+    读取excel文件的数据tiket字段值，与txt文件中的值进行对比，然后写入excel文件中
+    Args:
+        file_path (_type_): _description_
+        origin_txt (_type_): _description_
+    """
     # 读取文件并按照换行符切割成数组
     with open(origin_txt, 'r') as file:
         lines = file.read().splitlines()  # 将每一行作为一个元素加入列表
