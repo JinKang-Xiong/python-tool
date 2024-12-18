@@ -22,6 +22,13 @@ def extract_code(text):
     return ""  # 如果没有匹配到，返回 None
 
 
+def youzangCode(text):
+    result = text.split("，")  # 注意这里是中文逗号
+    if len(result) > 1:
+        return result[1]
+    return ""
+
+
 # 读取文件并保存数据到txt文件
 def read_and_save_to_txt(file_path, columns, output_txt_file):
     # 检查文件扩展名，决定读取Excel还是CSV
@@ -50,6 +57,13 @@ def read_and_save_to_txt(file_path, columns, output_txt_file):
 
                 elif column == "商家备注":
                     extracted_values.append(extract_code(str(row[column])))
+
+                elif column == "订单号":
+                    extracted_values.append(str(row[column]))
+                elif column == "商家订单备注":
+                    extracted_values.append(youzangCode(str(row[column])))
+                elif column == "买家付款时间":
+                    extracted_values.append(str(row[column]))
             print(extracted_values)
             # 将提取的数字连接成一行，并以逗号分隔
 
@@ -62,7 +76,7 @@ def read_and_save_to_txt(file_path, columns, output_txt_file):
 
 
 read_and_save_to_txt(
-    "/Users/xjk/Desktop/back-code-project/python-tool/src/store/12-11.csv",
-    ["主订单编号", "商家备注"],
-    "src/store/out/target1211-2.txt",
+    "/Users/xjk/Desktop/back-code-project/python-tool/src/store/youzang.csv",
+    ["订单号", "商家订单备注", "买家付款时间"],
+    "/Users/xjk/Desktop/back-code-project/python-tool/src/store/out/target1218.txt",
 )
